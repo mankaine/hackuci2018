@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-export default class App extends React.Component {
+import LoginPage from './Components/LoginPage'  
+
+
+
+export default class App extends Component {
+  constructor(props){
+    super(props); 
+  }
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+      <View>
+        <LoginPage/> 
       </View>
     );
   }
@@ -21,3 +27,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+//export default StackNavigator({
+//  Login: {
+//    screen: App,
+//  },
+//});
