@@ -5,6 +5,7 @@ import { StackNavigator } from 'react-navigation';
 import WeekdaySelector from './WeekdaySelector'
 import DosageRequirements from './DosageRequirements'
 import LogoHeader from './LogoHeader'
+import PageTitle from './PageTitle'
 
 
 export default class AddDrugPage extends React.Component { 
@@ -34,7 +35,7 @@ export default class AddDrugPage extends React.Component {
         return (
             <View style={styles.container}>
                 <LogoHeader />
-                <Text style={styles.forCommandText}>Add a Prescription</Text>
+                <PageTitle style={styles.forCommandText} text={"Add a Prescription"} />
                 <View style={styles.forFieldNameContainer}>
                     <Text style={styles.forFieldName}>Enter name</Text>
                 </View>
@@ -84,8 +85,6 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     forCommandText: { 
-        fontSize: 20,
-        textAlign: "center",
         marginTop: 20,
         marginBottom: 20
     },

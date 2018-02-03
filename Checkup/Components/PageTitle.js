@@ -5,20 +5,25 @@ import { StackNavigator } from 'react-navigation';
 
 export default class PageTitle extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
+
+        this.styles = {
+            fontSize: 25,
+            textAlign: 'center'
+        }
+
+        if (props.style) {
+            this.styles = StyleSheet.flatten([props.style, this.styles])
+            console.log(this.styles)
+        }
+
+        this.text = this.props.text
     }
+
 
     render() {
         return (
-            <Text style={styles.s}>{props.data}</Text>
+            <Text style={this.styles}>{this.text}</Text>
         )
     }
 }
-
-const styles = StyleSheet.create({
-    s : {
-        fontSize: 20, textAlign: "center",
-        marginTop: 20,
-        marginBottom: 20
-    }
-})

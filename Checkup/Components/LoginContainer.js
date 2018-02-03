@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, StyleSheet, View, Text, TextInput } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-
+import PageTitle from './PageTitle'
 
 export default class LoginContainer extends React.Component {
     constructor(props) {
@@ -28,7 +28,7 @@ export default class LoginContainer extends React.Component {
     render() {
         return (
             <View>
-                <Text style={styles.forSalutation}>Welcome to PreSCRIPTion!</Text> 
+                <PageTitle style={styles.forSalutation} text={"Welcome to PreSCRIPTion!"} />
                 <Text style={styles.forLoginText}>Please Login</Text>
                 <View> 
                     <TextInput
@@ -62,7 +62,6 @@ export default class LoginContainer extends React.Component {
 
 const styles = StyleSheet.create({
     forSalutation: {
-        fontSize: 25, textAlign: "center",
         marginTop: 30,
         marginBottom: 30 
     },
