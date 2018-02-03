@@ -1,34 +1,59 @@
 import React from 'react';
-import { AppRegistry, View, Text, Image, StyleSheet } from 'react-native';
+import { Button, ScrollView, TextInput, AppRegistry, View, Text, Image, StyleSheet } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-class Input extends React.Component {
-  constructor(props){
-     super(props);
-     this.state = {name: '', text: ''}
-  }
-  
-  
+import SetupContainer from './SetupContainer' 
+
+const styles2 = StyleSheet.create({
+  input: {
+    height: 40,
+    borderBottomWidth: 2,
+    marginTop: 20,
+    marginBottom: 20},
+  logo: {
+    width: 230, height: 230},
+  container: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    marginBottom : 40, 
+    alignItems: 'center'},
+  title:{
+    fontSize: 25, textAlign: "center"},
+  label:{
+    fontSize: 20, textAlign: "center"},
+  button: {
+        flex: 1,
+        backgroundColor: "#FF5733",
+        marginBottom: 40 }
+ }
+)
 
 
 export default class SetupPage extends React.Component {
   constructor(props){
     super(props);
-    this.state = {userName: '', caretakers: {}}
+    this.state = {userName: ''}
   }
+  showClick = () => {
+        console.log("Advance button pressed")
+  }
+
   render() {
-    let pic =  {uri: 'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png'}
     return (
-      <View style = {style.container}>
-        <Image style = {style.logo}
-
-          source = {pic}
-          //source={require('../Assets/CheckupLogo.svg')} 
+    <ScrollView>
+      <View style = {styles2.container}>
+        <Image style = {styles2.logo}
+          source={require('../Assets/Checkup_Logo.png')} 
         />
-      <Text>Personal Information </Text>
-      
-      </View>
+        <Text style={styles2.title}> Personal Information </Text>
+        <Text style={styles2.label}> Name: </Text>
+      <SetupContainer/>  
+    <Button
+      onClick={this.showClick()}
+      title="ADVANCE"
+      style={styles2.button}
+     />
+    </View>
+    </ScrollView>
     );
-
-
-} 
+}} 
