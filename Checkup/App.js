@@ -4,6 +4,8 @@ import { StackNavigator } from 'react-navigation';
 
 import LoginPage from './Components/LoginPage'  
 import SetupPage from './Components/SetupPage'
+import HomepagePage from './Components/HomepagePage'  
+
 
 
 export default class App extends Component {
@@ -13,10 +15,8 @@ export default class App extends Component {
   render() {
     return (
       <View>
-        <Text style = {styles}>
-          Welcome
-        </Text>
-        <LoginPage/> 
+        
+        <HomepagePage/> 
       </View>
     );
   }
