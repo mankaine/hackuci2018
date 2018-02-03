@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 import LoginPage from './Components/LoginPage'  
-
+import SetupPage from './Components/SetupPage'
 
 
 export default class App extends Component {
@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
   },
 });
 
-export default StackNavigator({
-  Login: {
-    screen: App,
-  },
-});
+//export default StackNavigator({
+//  Login: {
+//    screen: App,
+//  },
+//});

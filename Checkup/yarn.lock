@@ -4844,13 +4844,6 @@ react-native-maps@0.19.0:
   version "0.19.0"
   resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.19.0.tgz#ce94fad1cf360e335cb4338a68c95f791e869074"
 
-react-native-notifications@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/react-native-notifications/-/react-native-notifications-1.2.0.tgz#2eecad1ee1a3a96028335df4c364f8eb5606ca4e"
-  dependencies:
-    core-js "^1.0.0"
-    uuid "^2.0.3"
-
 react-native-safe-module@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/react-native-safe-module/-/react-native-safe-module-1.2.0.tgz#a23824ca24edc2901913694a76646475113d570d"
@@ -4876,6 +4869,14 @@ react-native-scripts@1.11.1:
     qrcode-terminal "^0.11.0"
     rimraf "^2.6.1"
     xdl "48.0.2"
+
+react-native-svg@^6.0.1-rc.3:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-6.1.0.tgz#0470c19bea4cc5dd6361d3f2874cf121e75e4156"
+  dependencies:
+    color "^2.0.1"
+    lodash "^4.16.6"
+    pegjs "^0.10.0"
 
 "react-native-svg@https://github.com/expo/react-native-svg/archive/5.5.1-exp.1.tar.gz":
   version "5.5.1"
@@ -6128,7 +6129,7 @@ uuid@3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.0.1.tgz#6544bba2dfda8c1cf17e629a3a305e2bb1fee6c1"
 
-uuid@^2.0.1, uuid@^2.0.3:
+uuid@^2.0.1:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-2.0.3.tgz#67e2e863797215530dff318e5bf9dcebfd47b21a"
 
