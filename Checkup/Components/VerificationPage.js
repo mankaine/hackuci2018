@@ -2,34 +2,29 @@ import React from 'react';
 import { AppRegistry, View, Text, Image, StyleSheet } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import VerificationContainer from './VerificationContainer'
-
+import LogoHeader from './LogoHeader'
 
 export default class VerificationPage extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {userNum: '', userType: ''}
+    this.state = { userNum: '', userType: '' }
   }
   render() {
-  return (
-      <View style = {style.container}>
-        <Image style = {style.logo}
-          source={require('../Assets/Checkup_Logo.png')} 
-        /> 
+    return (
+      <View style={style.container}>
+        <LogoHeader />
         <VerificationContainer />
       </View>
-    ); 
+    );
   }
 }
 const style = StyleSheet.create({
-    logo: { 
-        width: 120, 
-        height: 120,
-        margin: 40
-      },
+
   container: {
-    flexDirection: 'column', 
-    justifyContent: 'center', 
-    alignItems: 'center'}
-  })
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+})
 
 //AppRegistry.registerComponent('Checkup', () => LoginPage); 

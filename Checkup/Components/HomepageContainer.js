@@ -18,8 +18,7 @@ export default class HomepageContainer extends React.Component {
     render() {
         return (
             <View style = {styles.container}>
-
-                
+                <Text>HELLO WORLD</Text>                
             </View>
         )
     }

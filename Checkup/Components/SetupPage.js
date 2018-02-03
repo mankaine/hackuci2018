@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, ScrollView, TextInput, AppRegistry, View, Text, Image, StyleSheet } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-
+import LogoHeader from './LogoHeader'
 import SetupContainer from './SetupContainer' 
 
 const styles2 = StyleSheet.create({
@@ -10,8 +10,7 @@ const styles2 = StyleSheet.create({
     borderBottomWidth: 2,
     marginTop: 20,
     marginBottom: 20},
-  logo: {
-    width: 230, height: 230},
+
   container: {
     flexDirection: 'column',
     justifyContent: 'center',
@@ -41,10 +40,7 @@ export default class SetupPage extends React.Component {
   render() {
     return (
     <ScrollView>
-      <View style = {styles2.container}>
-        <Image style = {styles2.logo}
-          source={require('../Assets/Checkup_Logo.png')} 
-        />
+      <LogoHeader />
         <Text style={styles2.title}> Personal Information </Text>
         <Text style={styles2.label}> Name: </Text>
       <SetupContainer/>  
@@ -53,7 +49,6 @@ export default class SetupPage extends React.Component {
       title="ADVANCE"
       style={styles2.button}
      />
-    </View>
     </ScrollView>
     );
 }} 

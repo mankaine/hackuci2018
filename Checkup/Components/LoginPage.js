@@ -2,7 +2,7 @@ import React from 'react';
 import { AppRegistry, View, Text, Image, StyleSheet } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import LoginContainer from './LoginContainer'
-
+import LogoHeader from './LogoHeader'
 
 export default class LoginPage extends React.Component {
   constructor(props){
@@ -10,22 +10,17 @@ export default class LoginPage extends React.Component {
     this.state = {userNum: '', userType: ''}
   }
   render() {
-  return (
+  let pic =  {uri: 'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png'}
+    return (
       <View style = {style.container}>
-        <Image style = {style.logo}
-          source={require('../Assets/Checkup_Logo.png')} 
-        /> 
+        <LogoHeader/>
         <LoginContainer />
       </View>
     ); 
   }
 }
 const style = StyleSheet.create({
-  logo: { 
-    width: 120, 
-    height: 120,
-    margin: 40
-  },
+
   container: {
     flexDirection: 'column', 
     justifyContent: 'center', 

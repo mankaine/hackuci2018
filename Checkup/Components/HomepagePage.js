@@ -2,7 +2,7 @@ import React from 'react';
 import { AppRegistry, View, Text, Image, StyleSheet } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import HomepageContainer from './HomepageContainer'
-
+import LogoHeader from './LogoHeader'
 
 export default class HomepagePage extends React.Component {
   constructor(props){
@@ -12,17 +12,13 @@ export default class HomepagePage extends React.Component {
   render() {
   return (
       <View style = {style.container}>
+        <LogoHeader />
         <HomepageContainer/>
       </View>
     ); 
   }
 }
 const style = StyleSheet.create({
-  logo: { 
-    width: 120, 
-    height: 120,
-    margin: 40
-  },
   container: {
     flexDirection: 'column', 
     justifyContent: 'center', 
