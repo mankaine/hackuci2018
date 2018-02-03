@@ -13,6 +13,9 @@ export default class App extends Component {
   render() {
     return (
       <View>
+        <Text style = {styles}>
+          Welcome
+        </Text>
         <LoginPage/> 
       </View>
     );
@@ -28,8 +31,8 @@ const styles = StyleSheet.create({
   },
 });
 
-//export default StackNavigator({
-//  Login: {
-//    screen: App,
-//  },
-//});
+export default StackNavigator({
+  Login: {
+    screen: App,
+  },
+});
