@@ -9,14 +9,10 @@ export default class LoginPage extends React.Component {
     this.state = {userNum: '', userType: ''}
   }
   render() {
-  let pic =  {uri: 'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png'}
-    return (
+  return (
       <View style = {style.container}>
-        <Text> </Text>
         <Image style = {style.logo}
-          
-          source = {pic}
-          //source={require('../Assets/CheckupLogo.svg')} 
+          source={require('../Assets/Checkup_Logo.png')} 
         /> 
       </View>
     ); 
@@ -24,7 +20,7 @@ export default class LoginPage extends React.Component {
 }
 const style = StyleSheet.create({
   logo: { 
-    width: 130, height: 130},
+    width: 230, height: 230},
   container: {
     flexDirection: 'column', 
     justifyContent: 'center', 
