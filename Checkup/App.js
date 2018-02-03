@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-import LoginPage from './Components/LoginPage'  
+import VerificationPage from './Components/VerificationPage'  
 
 
 
@@ -13,10 +13,8 @@ export default class App extends Component {
   render() {
     return (
       <View>
-        <Text style = {styles}>
-          Welcome
-        </Text>
-        <LoginPage/> 
+        
+        <VerificationPage/> 
       </View>
     );
   }
@@ -31,8 +29,8 @@ const styles = StyleSheet.create({
   },
 });
 
-export default StackNavigator({
-  Login: {
-    screen: App,
-  },
-});
+//export default StackNavigator({
+//  Login: {
+//    screen: App,
+//  },
+//});

@@ -3,21 +3,12 @@ import { Button, StyleSheet, View, Text, TextInput } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 
-export default class LoginContainer extends React.Component {
+export default class VerficationContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            userNum: '',
-            userType: ''
+            userNum: ''
         }
-    }
-
-    recipientButtonPressed = () => {
-        console.log("Recipient button pressed")
-    }
-
-    caretakerButtonPressed = () => {
-        console.log("Caretaker button pressed")
     }
 
     showClick = () => {
@@ -28,13 +19,12 @@ export default class LoginContainer extends React.Component {
     render() {
         return (
             <View>
-                <Text style={styles.forSalutation}>Welcome to PreSCRIPTion!</Text> 
-                <Text style={styles.forLoginText}>Please Login</Text>
+                <Text style={styles.forLoginText}>Enter verification code:</Text>
                 <View> 
                     <TextInput
                         onChangeText={(text) => this.setState({userNum: text})}
-                        style={styles.forPhoneNumberInput}
-                        placeholder="Enter phone number" 
+                        style={styles.forNumberInput}
+                        placeholder="Verification code" 
                     />
                 </View>
                 <Button 
@@ -71,7 +61,7 @@ const styles = StyleSheet.create({
         marginTop: 20,
         marginBottom: 20
     },
-    forPhoneNumberInput: {
+    forNumberInput: {
         height: 40,
         borderBottomWidth: 2,
         marginTop: 20,

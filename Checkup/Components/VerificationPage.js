@@ -1,10 +1,10 @@
 import React from 'react';
 import { AppRegistry, View, Text, Image, StyleSheet } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import LoginContainer from './LoginContainer'
+import VerificationContainer from './VerificationContainer'
 
 
-export default class LoginPage extends React.Component {
+export default class VerificationPage extends React.Component {
   constructor(props){
     super(props);
     this.state = {userNum: '', userType: ''}
@@ -15,7 +15,7 @@ export default class LoginPage extends React.Component {
         <Image style = {style.logo}
           source={require('../Assets/Checkup_Logo.png')} 
         /> 
-        <LoginContainer />
+        <VerificationContainer />
       </View>
     ); 
   }
