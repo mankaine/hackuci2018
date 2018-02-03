@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-import ProfilePage from './Components/ProfilePage'  
+import HomepagePage from './Components/HomepagePage'  
 
 
 
@@ -14,7 +14,7 @@ export default class App extends Component {
     return (
       <View>
         
-        <ProfilePage/> 
+        <HomepagePage/> 
       </View>
     );
   }
