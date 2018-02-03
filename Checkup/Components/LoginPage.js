@@ -22,7 +22,10 @@ export default class LoginPage extends React.Component {
 }
 const style = StyleSheet.create({
   logo: { 
-    width: 230, height: 230},
+    width: 120, 
+    height: 120,
+    margin: 40
+  },
   container: {
     flexDirection: 'column', 
     justifyContent: 'center', 

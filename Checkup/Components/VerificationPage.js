@@ -21,8 +21,11 @@ export default class VerificationPage extends React.Component {
   }
 }
 const style = StyleSheet.create({
-  logo: { 
-    width: 230, height: 230},
+    logo: { 
+        width: 120, 
+        height: 120,
+        margin: 40
+      },
   container: {
     flexDirection: 'column', 
     justifyContent: 'center', 
