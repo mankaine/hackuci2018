@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppRegistry, View, Text, Image, StyleSheet } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import LoginContainer from './LoginContainer'
 
 
 export default class LoginPage extends React.Component {
@@ -18,6 +19,7 @@ export default class LoginPage extends React.Component {
           source = {pic}
           //source={require('../Assets/CheckupLogo.svg')} 
         /> 
+        <LoginContainer />
       </View>
     ); 
   }
