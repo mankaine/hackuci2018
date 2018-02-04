@@ -22,8 +22,10 @@ const RootStack = StackNavigator( {
   Verification: {
     screen: VerificationPage },
   Home: {
-    screen: HomePage}
-} ); 
+    screen: HomePage},
+  Drug: {
+    screen: AddDrugPage}
+  } ); 
 
 
 export default class App extends Component {
