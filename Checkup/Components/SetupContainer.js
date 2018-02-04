@@ -1,8 +1,8 @@
 import React from 'react';
+import { Permissions, Notifications } from 'expo';
 import { Button, StyleSheet, View, Text, TextInput } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import SingleLineDataEntry from './SingleLineDataEntry'
-import { Permissions, Notifications } from 'expo';
 
 const styles = StyleSheet.create({
   input: {
@@ -38,7 +38,11 @@ async function getPushToken() {
 export default class SetupContainer extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { caretakers: [] }
+    this.state = {
+      name: '',
+      email: '',
+      caretakers: [],
+    }
   }
 
   renderCaretaker = (caretaker, index) => {
@@ -74,9 +78,10 @@ export default class SetupContainer extends React.Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        phoneNumber: this.props.phoneNumber, 
+        phoneNumber: this.props.phoneNumber,
         caretakers: this.state.caretakers,
-        name: this.props.name,
+        name: this.state.name,
+        email: this.state.email,
         expoPushToken,
       }),
     })
@@ -89,6 +94,8 @@ export default class SetupContainer extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <SingleLineDataEntry req="Name" onChange={name => this.setState({ name })}/>
+        <SingleLineDataEntry req="Email" onChange={email => this.setState({ email })}/>
         {this.state.caretakers.map(this.renderCaretaker)}
         <Button
           onPress={this.addCaretaker}
