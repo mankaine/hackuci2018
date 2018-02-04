@@ -5,34 +5,26 @@ import { StackNavigator } from 'react-navigation';
 
 
 export default class Reminder extends React.Component {
-    constructor(props) {
-        super(props)
+  handleEdit = () => {
+  }
 
-        this.styles = {
-            alignItems: 'center'
-        }
+  handleTaken = () => {
+  }
 
-        if (props.style) {
-            this.styles = StyleSheet.flatten([props.style, this.styles])
-            console.log(this.styles)
-        }
-        editHandle = () => { }
-        takenHandle = () => { }
-        this.text = this.props.text
-    }
-
-    render() {
-        return (
-            <Card
-                title={this.text}
-                containerStyle={this.styles}
-            >
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-                    <Button
-                        title='Edit' onPress={this.editHandle} />
-                    <Button title='Taken' onPress={this.takenHandle} />
-                </View>
-            </Card>
-        )
-    }
+  render() {
+    return (
+      <Card
+        title={this.props.text}
+        containerStyle={[
+          { alignItems: 'center' },
+          this.props.style,
+        ]}
+      >
+        <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+          <Button title='Edit' onPress={this.handleEdit} />
+          <Button title='Taken' onPress={this.handleTaken} />
+        </View>
+      </Card>
+    )
+  }
 }
