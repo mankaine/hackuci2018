@@ -1,6 +1,7 @@
 import React from 'react';
-import { Button, StyleSheet, Image, ScrollView, View, Text, TextInput } from 'react-native';
+import { Button, StyleSheet, Image, View, Text, TextInput } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 import WeekdaySelector from './WeekdaySelector'
 import DosageRequirements from './DosageRequirements'
@@ -53,9 +54,10 @@ export default class AddDrugPage extends React.Component {
 
     render() {
         return (
-            <ScrollView 
-            contentContainerStyle={styles.container}
-            keyboardDismissMode={'on-drag'}
+            <KeyboardAwareScrollView
+                contentContainerStyle={styles.container}
+                resetScrollToCoords={{ x: 0, y: 0 }}
+                keyboardDismissMode={'on-drag'}
             >
                 <LogoHeader />
                 <PageTitle style={styles.forCommandText} text={"Add a Prescription"} />
@@ -76,7 +78,7 @@ export default class AddDrugPage extends React.Component {
                         style={styles.forButton} 
                     />
                 </View>
-            </ScrollView>
+            </KeyboardAwareScrollView>
         )
     }
 }
