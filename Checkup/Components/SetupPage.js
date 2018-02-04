@@ -4,6 +4,7 @@ import { StackNavigator } from 'react-navigation';
 import LogoHeader from './LogoHeader'
 import SetupContainer from './SetupContainer'
 import PageTitle from './PageTitle'
+import SingleLineDataEntry from './SingleLineDataEntry'
 
 const styles2 = StyleSheet.create({
   input: {
@@ -37,17 +38,24 @@ export default class SetupPage extends React.Component {
     super(props);
     this.state = { userName: '' }
   }
+
+
   showClick = () => {
     console.log("Advance button pressed")
   }
+
+
+  updateUserName = (data) => {
+    this.setState({userName: data})
+  }
+
 
   render() {
     return (
       <ScrollView>
         <LogoHeader />
-        <PageTitle  text="Personal Information" />
-        <Text style={styles2.label}> Name: </Text>
-        <SetupContainer />
+        <PageTitle text="Personal Information" style={styles.forTitle} />
+        <SingleLineDataEntry req="Enter name" onChange={this.updateUserName}/>
         <Button
           onClick={this.showClick()}
           title="ADVANCE"
@@ -57,3 +65,10 @@ export default class SetupPage extends React.Component {
     );
   }
 } 
+
+
+const styles = {
+  forTitle : {
+    marginBottom: 20
+  }
+}
