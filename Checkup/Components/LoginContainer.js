@@ -32,8 +32,8 @@ export default class LoginContainer extends React.Component {
 	  firstParam: this.state.userNum,
 	}),
       })
-      const body = await res.json
-      console.log(body)
+//      const body = await res.JSON()
+//      console.log(body)
       this.props.navigation.navigate('Setup')} 
 
 

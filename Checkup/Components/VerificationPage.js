@@ -13,7 +13,7 @@ export default class VerificationPage extends React.Component {
     return (
       <View style={style.container}>
         <LogoHeader />
-        <VerificationContainer />
+        <VerificationContainer navigation={this.props.navigation} />
       </View>
     );
   }

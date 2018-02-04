@@ -13,11 +13,6 @@ export default class VerficationContainer extends React.Component {
         }
     }
 
-    showClick = () => {
-        console.log("Advance button pressed")
-    }
-
-
     render() {
         return (
             <View>
@@ -30,7 +25,7 @@ export default class VerficationContainer extends React.Component {
                     />
                 </View>
                 <Button 
-                    onClick={this.showClick()} 
+                    onPress={() => this.props.navigation.navigate('Home')} 
                     title="ADVANCE"
                     style={styles.forButton}
                 />
