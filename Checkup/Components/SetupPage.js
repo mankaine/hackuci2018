@@ -1,69 +1,29 @@
 import React from 'react';
-import { Button, ScrollView, TextInput, AppRegistry, View, Text, Image, StyleSheet } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import { StyleSheet } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import LogoHeader from './LogoHeader'
-import SetupContainer from './SetupContainer'
 import PageTitle from './PageTitle'
-import SingleLineDataEntry from './SingleLineDataEntry'
+import SetupContainer from './SetupContainer'
 import TouchButton from './TouchButton'
 
-const styles2 = StyleSheet.create({
-  input: {
-    height: 40,
-    borderBottomWidth: 2,
-    marginTop: 20,
-    marginBottom: 20
-  },
-  container: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    marginBottom: 40,
-    alignItems: 'center'
-  },
-  label: {
-    fontSize: 20,
-    textAlign: "center",
-    marginTop: 30
-  },
-  button: {
-    flex: 1,
-    backgroundColor: "#FF5733",
-    marginBottom: 40
-  }
-}
-)
-
-
 export default class SetupPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { userName: '' }
-  }
-
   static navigationOptions = {
     header: null,
   }
 
-  updateUserName = (data) => {
-    this.setState({userName: data})
-  }
-
-
   render() {
     return (
-      <ScrollView>
+      <KeyboardAwareScrollView extraScrollHeight={100}>
         <LogoHeader />
         <PageTitle text="Personal Information" style={styles.forTitle} />
-        <SingleLineDataEntry req="Enter name" onChange={this.updateUserName}/>
-        <SetupContainer navigation={this.props.navigation} name={this.state.userName} phoneNumber={this.props.navigation.state.params.phoneNumber}/>
-      </ScrollView>
+        <SetupContainer navigation={this.props.navigation} phoneNumber={this.props.navigation.state.params.phoneNumber} />
+      </KeyboardAwareScrollView>
     );
   }
 }
 
-
-const styles = {
-  forTitle : {
+const styles = StyleSheet.create({
+  forTitle: {
     marginBottom: 20
   }
-}
+})
