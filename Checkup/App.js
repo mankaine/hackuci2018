@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Bucket } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 import HomePage from './Components/HomePage'  
+import LoginPage from './Components/LoginPage'
 import SetupPage from './Components/SetupPage'
 import VerificationPage from './Components/VerificationPage'
 import AddDrugPage from './Components/AddDrugPage'
@@ -14,7 +15,7 @@ const RootStack = StackNavigator( {
   Setup: {
     screen: SetupPage },
   Verification: {
-    screen: VerificationPage }
+    screen: VerificationPage },
 } ); 
 
 
@@ -23,9 +24,14 @@ export default class App extends Component {
     super(props); 
   }
   render() {
+    /*
     return (
       <RootStack />
     );
+    */
+    return (
+      <AddDrugPage />
+    )
   }
 }
 
