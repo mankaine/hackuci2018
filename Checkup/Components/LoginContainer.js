@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, StyleSheet, View, Text, TextInput } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import PageTitle from './PageTitle'
+import TouchButton from './TouchButton'
 
 export default class LoginContainer extends React.Component {
     constructor(props) {
@@ -49,9 +50,9 @@ export default class LoginContainer extends React.Component {
                         placeholder="Enter phone number" 
                     />
                 </View>
-                 <Button 
+                 <TouchButton 
                    onPress={this.handlePress} 
-                   title="ADVANCE"
+                   text="ADVANCE"
                    style={styles.ForButton}
                 />
             </View>

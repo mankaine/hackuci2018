@@ -20,8 +20,8 @@ export default class TouchButton extends React.Component {
         this.text = this.props.text
     }
     onpress = () => {
-        console.log('pressed')
     }
+    
 
     render() {
         return (

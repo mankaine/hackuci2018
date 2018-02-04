@@ -5,6 +5,7 @@ import LogoHeader from './LogoHeader'
 import SetupContainer from './SetupContainer'
 import PageTitle from './PageTitle'
 import SingleLineDataEntry from './SingleLineDataEntry'
+import TouchButton from './TouchButton'
 
 const styles2 = StyleSheet.create({
   input: {
@@ -52,9 +53,9 @@ export default class SetupPage extends React.Component {
         <PageTitle text="Personal Information" style={styles.forTitle} />
         <SingleLineDataEntry req="Enter name" onChange={this.updateUserName}/>
         <SetupContainer/>
-        <Button
+        <TouchButton
           onPress={() => this.props.navigation.navigate('Verification')}
-          title="ADVANCE"
+          text="ADVANCE"
           style={styles2.button}
         />
       </ScrollView>

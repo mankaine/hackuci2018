@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, StyleSheet, View, Text, TextInput } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import TouchButton from './TouchButton'
+import Reminder from './Reminder'
 
 export default class HomeContainer extends React.Component {
     constructor(props) {
@@ -17,9 +18,9 @@ export default class HomeContainer extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <ScrollView style={styles.container}>
                 <TouchButton style={{padding:20}} text="Create Reminder"/>
-            </View>
+            </ScrollView>
         )
     }
 }
