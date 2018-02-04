@@ -39,7 +39,7 @@ export default class VerficationContainer extends React.Component {
   render() {
     return (
       <View>
-        <PageTitle style={styles.forLoginText} text="Enter verfication code" />
+        <PageTitle style={styles.forLoginText} text="Enter verification code" />
         <View>
           <NumberDataEntry
             onChange={(text) => this.setState({ userNum: text })}
