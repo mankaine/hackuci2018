@@ -13,7 +13,7 @@ export default class VerificationPage extends React.Component {
     return (
       <View style={style.container}>
         <LogoHeader />
-        <VerificationContainer navigation={this.props.navigation} />
+        <VerificationContainer navigation={this.props.navigation} phoneNumber={this.props.navigation.state.params.phoneNumber} />
       </View>
     );
   }

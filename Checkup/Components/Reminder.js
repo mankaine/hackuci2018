@@ -16,11 +16,9 @@ export default class Reminder extends React.Component {
             this.styles = StyleSheet.flatten([props.style, this.styles])
             console.log(this.styles)
         }
-        
+        editHandle = () => {}
+        takenHandle = () => {}
         this.text = this.props.text
-    }
-    onpress = () => {
-        console.log('pressed')
     }
 
     render() {
@@ -31,8 +29,8 @@ export default class Reminder extends React.Component {
             >
             <View style={{flexDirection:'row', justifyContent:'space-around'}}>
             <Button
-                title='edit'/>
-            <Button title='taken'/>
+                title='Edit' onPress={this.editHandle}/>
+            <Button title='Taken' onPress={this.takenHandle}/>
             </View>
             </Card>
         )
