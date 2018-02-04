@@ -14,7 +14,7 @@ export default class ProfilePage extends React.Component {
   return (
       <View style = {style.container}>
         <LogoHeader style={{ width: '100%' }} />
-        <ProfileContainer/>
+        <ProfileContainer navigation={this.props.navigation} />
       </View>
     );
   }

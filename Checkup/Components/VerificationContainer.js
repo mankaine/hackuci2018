@@ -39,18 +39,18 @@ export default class VerficationContainer extends React.Component {
   render() {
     return (
       <View>
-        <PageTitle style={styles.forLoginText} text="Enter verification code" />
         <View>
+          <PageTitle style={styles.forLoginText} text="Verify" />
           <NumberDataEntry
             onChange={(text) => this.setState({ userNum: text })}
             style={styles.forNumberInput}
-            req="Verification code"
+            req="Code"
             ph="1234"
           />
         </View>
         <Button
           onPress={this.handlePress}
-          title="ADVANCE"
+          title="Login"
           style={styles.forButton}
         />
       </View>
@@ -78,8 +78,9 @@ const styles = StyleSheet.create({
     marginBottom: 30
   },
   forLoginText: {
-    marginTop: 20,
-    marginBottom: 20
+      fontSize: 20, textAlign: "center",
+      marginTop: 20,
+      marginBottom: 20
   },
   forNumberInput: {
     height: 40,
