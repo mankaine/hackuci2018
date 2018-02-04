@@ -1,25 +1,42 @@
 import React from 'react';
-import { AppRegistry, View, Text, Image, StyleSheet } from 'react-native';
+import { ScrollView, Button, StyleSheet, View, Text, TextInput, PanResponder } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import HomeContainer from './HomeContainer'
-import LogoHeader from './LogoHeader'
+import { Card } from 'react-native-elements'
+import Reminder from './Reminder'
 
 export default class HomePage extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {userNum: '', userType: ''}
+  static navigationOptions = {
+    header: null
   }
+
+  //<Reminder text="placeholder: take in x mins/hours"> </Reminder>
+  //<Text style={{padding:20, fontSize: 18}}>No perscriptions listed</Text>
+
   render() {
-  return (
-        <HomeContainer navigation={this.props.navigation} />
-    );
+    return (
+      <ScrollView style={styles.container}>
+        <Card containerStyle={{ alignItems: 'center', backgroundColor: '#F0D138' }}>
+          <Button
+            title="Create reminder"
+            onPress={() => this.props.navigation.navigate('Drug')}
+          />
+        </Card>
+        <Reminder text="placeholder: take in x mins/hours"> </Reminder>
+      </ScrollView>
+    )
   }
 }
-const style = StyleSheet.create({
-  container: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center'}
-  })
 
-//AppRegistry.registerComponent('Checkup', () => LoginPage);
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 20
+  },
+  forView: {
+    display: "flex",
+    flexDirection: "row",
+  },
+  forButton: {
+    backgroundColor: "#FF5733",
+    fontSize: 25
+  }
+})
