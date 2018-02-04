@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Bucket } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-import LoginPage from './Components/LoginPage'  
+import HomePage from './Components/HomePage'  
 import SetupPage from './Components/SetupPage'
-import HomepagePage from './Components/HomepagePage'  
 import VerificationPage from './Components/VerificationPage'
 import AddDrugPage from './Components/AddDrugPage'
 

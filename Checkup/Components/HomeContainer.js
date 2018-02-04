@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button, StyleSheet, View, Text, TextInput } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import TouchButton from './TouchButton'
 
-
-export default class HomepageContainer extends React.Component {
+export default class HomeContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,8 +17,8 @@ export default class HomepageContainer extends React.Component {
 
     render() {
         return (
-            <View style = {styles.container}>
-                <Text>HELLO WORLD</Text>                
+            <View style={styles.container}>
+                <TouchButton style={{padding:20}} text="Create Reminder"/>
             </View>
         )
     }
@@ -28,9 +28,8 @@ export default class HomepageContainer extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: 'column', 
-        justifyContent: 'center', 
-        alignItems: 'center'},
+        marginTop: 40
+    },
     forUserNameText: {
         fontSize: 20, 
         textAlign: "center",
@@ -68,17 +67,15 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         marginRight: 20
     },
-
-
-    forTextContainer:{
-        flexDirection: 'row',
-        justifyContent: 'space-around'
+    forReminder:{
+        margin: 40
     },
     forView: {
         display: "flex",
         flexDirection: "row",
     },
     forButton: {
-        backgroundColor: "#FF5733"
+        backgroundColor: "#FF5733",
+        fontSize: 25
     }
 })

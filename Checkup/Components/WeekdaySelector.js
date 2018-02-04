@@ -3,13 +3,13 @@ import { Button, StyleSheet, Image, View, Text, TextInput } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 const daysOfWeek = {
-    "MONDAY" : 0,
-    "TUESDAY" : 1,
-    "WEDNESDAY" : 2,
-    "THURSDAY" : 3,
-    "FRIDAY" : 4,
-    "SATURDAY" : 5,
-    "SUNDAY" : 6,
+    "Su" : 0,
+    "Mo" : 1,
+    "Tu" : 2,
+    "We" : 3,
+    "Th" : 4,
+    "Fr" : 5,
+    "Sa" : 6,
     "DAYS_IN_WEEK" : 7
 }
 
@@ -19,6 +19,11 @@ export default class WeekdaySelector extends React.Component {
         this.state = { 
             daysOfWeekToTake: [0, 0, 0, 0, 0, 0, 0]
         }
+    }
+
+
+    shareSelection = () => {
+        console.log(this.state.daysOfWeekToTake)
     }
 
 
