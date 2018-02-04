@@ -57,7 +57,7 @@ export default class SetupPage extends React.Component {
         <PageTitle text="Personal Information" style={styles.forTitle} />
         <SingleLineDataEntry req="Enter name" onChange={this.updateUserName}/>
         <Button
-          onPress={this.showClick()}
+          onPress={this.props.navigation.navigate('Home')}
           title="ADVANCE"
           style={styles2.button}
         />
