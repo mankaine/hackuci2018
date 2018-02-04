@@ -5,6 +5,9 @@ import LogoHeader from './LogoHeader'
 import VerificationContainer from './VerificationContainer'
 
 export default class VerificationPage extends React.Component {
+  static navigationOptions = {
+    header: null,
+  }
   render() {
     return (
       <KeyboardAwareScrollView extraScrollHeight={100}>

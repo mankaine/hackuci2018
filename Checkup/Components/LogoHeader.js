@@ -1,31 +1,40 @@
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet, Text } from 'react-native';
 
 
 export default class LogoHeader extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { userNum: '', userType: '' }
-    }
-    render() {
-        return (
-            <View style={style.container}>
-                <Image style={style.logo}
-                    source={require('../Assets/Checkup_Logo.png')}
-                />
-            </View>
-        );
-    }
+  render() {
+    return (
+      <View style={style.container}>
+        <Image
+          style={style.logo}
+          source={require('../Assets/pill.png')}
+          resizeMode="contain"
+        />
+        <Text style={style.text}>
+          CheckUp
+        </Text>
+      </View>
+    )
+  }
 }
+
 const style = StyleSheet.create({
-    logo: {
-        width: 120,
-        height: 120,
-        margin: 40
-    },
-    container: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
-  })
+  container: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F0D138',
+    paddingBottom: 20,
+  },
+  logo: {
+    width: 120,
+    height: 120,
+    marginTop: 40,
+    marginBottom: 10
+  },
+  text: {
+    fontSize: 48,
+    fontWeight: '300',
+  }
+})
