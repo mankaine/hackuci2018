@@ -1,9 +1,12 @@
 import React from 'react';
-import { Button, StyleSheet, View, Text, TextInput, AsyncStorage } from 'react-native';
+import { Button, StyleSheet, Image, View, Text, TextInput, AsyncStorage, TouchableOpacity } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import LogoHeader from './LogoHeader'
 
 export default class LandingPage extends React.Component {
+  static navigationOptions = {
+    header: null,
+  }
   constructor(props) {
     super(props);
   }
@@ -21,6 +24,10 @@ export default class LandingPage extends React.Component {
         },
       })
       const token = await res.text()
+      if(res.ok == false){
+        this.props.navigation.navigate('Login')
+        return;
+      }
       await AsyncStorage.setItem('@checkin:token', token);
       this.props.navigation.navigate('Home')
     } catch (error) {
@@ -29,20 +36,34 @@ export default class LandingPage extends React.Component {
   }
   render() {
     return (
-      <View>
-        <Button
-          onPress={this.handlePress}
-          title="Welcome"
-          style={styles.forButton}
-        />
+      <View style = {styles.forPage}>
+        <TouchableOpacity onPress={this.handlePress}>
+          <Image
+            style={styles.logo}
+            source={require('../Assets/pill.png')}
+            resizeMode="contain"
+          />
+        </TouchableOpacity>
       </View>
     );
   }
 
 }
 const styles = StyleSheet.create({
+  logo: {
+    width: 250,
+    height: 250,
+    marginTop: 40,
+    marginBottom: 10,
+  },
   forButton: {
     flex: 1,
     backgroundColor: "#FF5733"
+  },
+  forPage: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: "#F0D138"
   }
 })
