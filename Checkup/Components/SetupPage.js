@@ -40,11 +40,6 @@ export default class SetupPage extends React.Component {
   }
 
 
-  showClick = () => {
-    console.log("Advance button pressed")
-  }
-
-
   updateUserName = (data) => {
     this.setState({userName: data})
   }
@@ -56,8 +51,9 @@ export default class SetupPage extends React.Component {
         <LogoHeader />
         <PageTitle text="Personal Information" style={styles.forTitle} />
         <SingleLineDataEntry req="Enter name" onChange={this.updateUserName}/>
+        <SetupContainer/>
         <Button
-          onPress={this.props.navigation.navigate('Home')}
+          onPress={() => this.props.navigation.navigate('Verification')}
           title="ADVANCE"
           style={styles2.button}
         />

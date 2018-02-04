@@ -14,12 +14,7 @@ export default class LoginPage extends React.Component {
     return (
       <View style = {style.container}>
         <LogoHeader/>
-        <LoginContainer />
-        <Button 
-          onPress={() => this.props.navigation.navigate('Setup')} 
-          title="ADVANCE"
-          style={style.button}
-        />
+        <LoginContainer navigation={this.props.navigation}  />
       </View>
     ); 
   }

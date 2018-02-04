@@ -15,7 +15,7 @@ const RootStack = StackNavigator( {
   Setup: {
     screen: SetupPage },
   Verification: {
-    screen: VerificationPage },
+    screen: VerificationPage }
 } ); 
 
 

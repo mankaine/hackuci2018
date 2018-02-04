@@ -13,12 +13,28 @@ export default class LoginContainer extends React.Component {
     }
 
     recipientButtonPressed = () => {
-        console.log("Recipient button pressed")
+      console.log("Recipient button pressed")
     }
 
     caretakerButtonPressed = () => {
-        console.log("Caretaker button pressed")
+      console.log("Caretaker button pressed")
     }
+
+
+    handlePress = async () => {
+      const res = await fetch('http://34.217.100.80/', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+         'Content-Type': 'application/json',
+  },
+	body: JSON.stringify({
+	  firstParam: this.state.userNum,
+	}),
+      })
+      const body = await res.json
+      console.log(body)
+      this.props.navigation.navigate('Setup')} 
 
 
     render() {
@@ -33,6 +49,11 @@ export default class LoginContainer extends React.Component {
                         placeholder="Enter phone number" 
                     />
                 </View>
+                 <Button 
+                   onPress={this.handlePress} 
+                   title="ADVANCE"
+                   style={styles.ForButton}
+                />
             </View>
         )
     }
@@ -82,4 +103,3 @@ const styles = StyleSheet.create({
     }
 })
 
-// >>>>>>> 5fb5288980128b0438702a2f7a23c9408ac1c7e3

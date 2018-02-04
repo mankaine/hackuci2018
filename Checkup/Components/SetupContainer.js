@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, StyleSheet, View, Text, TextInput } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-
+import SingleLineDataEntry from './SingleLineDataEntry'
 
 const styles = StyleSheet.create({
   input: { height: 40,
@@ -26,7 +26,7 @@ export default class SetupContainer extends React.Component {
   renderCaretaker = (caretaker, index) => {
     return(
       <View key={index}>
-        <TextInput
+        <SingleLineDataEntry req="Caretaker's Phone Number" 
           onChangeText={(text) => { 
             caretakers = this.state.caretakers.slice();
             caretakers[index] = text;
@@ -48,14 +48,6 @@ export default class SetupContainer extends React.Component {
 
   render() {
     return (
-      <View>
-      <View style={styles.container}>
-        <TextInput
-          onChangeTest={(text)=> this.setState({userName: text})}
-          style={styles.input}
-          placeholder="Your Name"
-        />
-      </View>
       <View style = {styles.container}>
         {this.state.caretakers.map(this.renderCaretaker)}
         <Button
@@ -63,7 +55,6 @@ export default class SetupContainer extends React.Component {
           title="Add a caretaker"
           style={styles.forButton}
         />
-      </View>
       </View>
     )
 
