@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, StyleSheet, Image, View, Text, TextInput } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import TouchButton from "./TouchButton";
 
 const daysOfWeek = {
     "Su" : 0,
@@ -21,9 +22,9 @@ export default class WeekdaySelector extends React.Component {
         }
     }
 
-
-    shareSelection = () => {
-        console.log(this.state.daysOfWeekToTake)
+    
+    shareSelection = (event) => {
+        console.log(event)
     }
 
 
@@ -32,33 +33,33 @@ export default class WeekdaySelector extends React.Component {
             <View style={styles.forContainer}>
                 <Text style={styles.forCommandText}>Select Days</Text>
                 <View style={styles.forDayWrapper}>
-                    <Button
+                    <TouchButton
                         style={styles.forDayButton} 
-                        title="Su"
+                        text="Su"
                     />
-                    <Button
+                    <TouchButton
                         style={styles.forDayButton} 
-                        title="Mo"
+                        text="Mo"
                     />
-                    <Button
+                    <TouchButton
                         style={styles.forDayButton} 
-                        title="Tu"
+                        text="Tu"
                     />
-                    <Button
+                    <TouchButton
                         style={styles.forDayButton} 
-                        title="We"
+                        text="We"
                     />
-                    <Button
+                    <TouchButton
                         style={styles.forDayButton} 
-                        title="Th"
+                        text="Th"
                     />
-                    <Button
+                    <TouchButton
                         style={styles.forDayButton} 
-                        title="Fr"
+                        text="Fr"
                     />
-                    <Button
+                    <TouchButton
                         style={styles.forDayButton} 
-                        title="Sa"
+                        text="Sa"
                     />
                 </View>
             </View>
@@ -87,5 +88,9 @@ const styles = StyleSheet.create({
     },
     forDayButton: {
         flexGrow: 1,
+        paddingLeft: 10,
+        paddingRight: 10,
+        paddingTop: 10,
+        paddingBottom: 10
     }
 })

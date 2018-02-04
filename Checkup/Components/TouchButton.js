@@ -19,19 +19,27 @@ export default class TouchButton extends React.Component {
         
         this.text = this.props.text
     }
-    onpress = () => {
-        console.log('pressed')
+
+    onpress = (event) => {
+        console.log(event)
+        if (this.props.onPress) {
+            this.props.onPress(event)
+            console.log(event)
+        }
+        else {
+            console.log("No onPress")
+        }
     }
 
     render() {
         return (
             <TouchableHighlight
-            style={this.styles}
-            onPress={this.onpress}
-            activeOpacity={0.1}
-            underlayColor={'#A9A9A9'}
+                style={this.styles}
+                onPress={this.onpress}
+                activeOpacity={0.1}
+                underlayColor={'#A9A9A9'}
             >
-            <Text style={{fontSize: 18}}>{this.text}</Text>
+                <Text style={{fontSize: 18}}>{this.text}</Text>
             </TouchableHighlight>
         )
     }
