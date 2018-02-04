@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, StyleSheet, Image, View, Text, TextInput } from 'react-native';
+import { Button, StyleSheet, Image, ScrollView, View, Text, TextInput } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 import WeekdaySelector from './WeekdaySelector'
@@ -8,6 +8,7 @@ import LogoHeader from './LogoHeader'
 import PageTitle from './PageTitle'
 import SingleLineDataEntry from './SingleLineDataEntry'
 import MultiLineDataEntry from './MultiLineDataEntry'
+import NumberDataEntry from './NumberDataEntry'
 
 
 export default class AddDrugPage extends React.Component { 
@@ -40,15 +41,29 @@ export default class AddDrugPage extends React.Component {
         this.setState({instructions: data})
     }
 
+    updateRate = (data) => {
+        this.setState({dosageSize: data})
+    }
+
+    isValidDosage = (dosageToCheck) => {
+
+    }
+
+    checkForCompletion = () => {}
+
     render() {
         return (
-            <View style={styles.container}>
+            <ScrollView 
+            contentContainerStyle={styles.container}
+            keyboardDismissMode={'on-drag'}
+            >
                 <LogoHeader />
                 <PageTitle style={styles.forCommandText} text={"Add a Prescription"} />
                 <SingleLineDataEntry onChange={this.updateMedicineName} req={"Enter name"}/>
                 <MultiLineDataEntry onChange={this.updateInstructions} req={"Enter instructions"} />
                 <WeekdaySelector />
                 <DosageRequirements />
+                <NumberDataEntry onChange={this.updateRate} req={"Enter dosage"}/>
                 <View style={styles.forView}>
                     <Button
                         onPress={this.cancelButtonPressed}
@@ -61,7 +76,7 @@ export default class AddDrugPage extends React.Component {
                         style={styles.forButton} 
                     />
                 </View>
-            </View>
+            </ScrollView>
         )
     }
 }

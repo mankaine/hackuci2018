@@ -13,7 +13,11 @@ export default class DosageRequirements extends React.Component {
         }
     }
 
+
     render() {
-        return (<View></View>)
+        return (
+            <View>
+            </View>
+        )
     }
 }
