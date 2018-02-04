@@ -1,7 +1,9 @@
 import React from 'react';
 import { Button, StyleSheet, View, Text, TextInput } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import NumberDataEntry from './NumberDataEntry'
 import PageTitle from './PageTitle'
+
 export default class LoginContainer extends React.Component {
     constructor(props) {
         super(props);
@@ -47,10 +49,11 @@ export default class LoginContainer extends React.Component {
                 <PageTitle style={styles.forSalutation} text={"Welcome to PreSCRIPTion!"} />
                 <Text style={styles.forLoginText}>Please Login</Text>
                 <View>
-                    <TextInput
-                        onChangeText={(text) => this.setState({ userNum: text })}
+                    <NumberDataEntry
+                        onChange={(text) => this.setState({ userNum: text })}
                         style={styles.forPhoneNumberInput}
-                        placeholder="Enter phone number"
+                        req="Phone number"
+                        ph="1234567890"
                     />
                 </View>
                 <Button
@@ -63,7 +66,7 @@ export default class LoginContainer extends React.Component {
     }
 }
 
-/**                
+/**
  * <View style={styles.forView}>
  *  <Button
  *      onClick={this.recipientButtonPressed()}
