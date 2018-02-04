@@ -1,5 +1,6 @@
 import React from 'react';
 import { AppRegistry, View, Text, Image, StyleSheet } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { StackNavigator } from 'react-navigation';
 import VerificationContainer from './VerificationContainer'
 import LogoHeader from './LogoHeader'
@@ -11,20 +12,14 @@ export default class VerificationPage extends React.Component {
   }
   render() {
     return (
-      <View style={style.container}>
+      <KeyboardAwareScrollView extraScrollHeight={100}>
         <LogoHeader />
         <VerificationContainer navigation={this.props.navigation} phoneNumber={this.props.navigation.state.params.phoneNumber} />
-      </View>
+      </KeyboardAwareScrollView>
     );
   }
 }
-const style = StyleSheet.create({
-
+const styles = StyleSheet.create({
   container: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center'
   }
 })
-
-//AppRegistry.registerComponent('Checkup', () => LoginPage); 
