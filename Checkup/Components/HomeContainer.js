@@ -11,7 +11,7 @@ export default class HomeContainer extends React.Component {
             userNum: ''
         }
         showClick = () => {
-
+            console.log(this.state.userNum)
         } 
     }
     

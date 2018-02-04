@@ -7,9 +7,13 @@ import LoginPage from './Components/LoginPage'
 import SetupPage from './Components/SetupPage'
 import VerificationPage from './Components/VerificationPage'
 import AddDrugPage from './Components/AddDrugPage'
+import LandingPage from './Components/LandingPage'
+
 
 
 const RootStack = StackNavigator( {
+  Landing: {
+    screen: LandingPage}, 
   Login: {
     screen: LoginPage }, 
   Setup: {
