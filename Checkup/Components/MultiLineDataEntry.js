@@ -23,6 +23,7 @@ export default class SingeLineDataEntry extends React.Component {
                 </View>
                 <View style={styles.forDataEntryContainer}>
                     <TextInput
+                        placeholder={this.props.ph || "Type answer here"}
                         onChangeText={(text) => this.setState({instructions: text})}
                         style={styles.forDataEntryPrompt}
                         multiline={true}
@@ -40,20 +41,21 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        flex: 1
     },
     forDataEntryPrompt: {
         height: 40,
         borderBottomWidth: 2,
         marginBottom: 20,
-        flex: 0.8
+        flex: 0.9
     },
     forFieldNameContainer: {
         flexDirection: "row"
     },
     forFieldName: {
         marginTop: 10,
-        flex: 0.8
+        flex: 0.9
     },
     forDataEntryContainer: {
         flexDirection: 'row'

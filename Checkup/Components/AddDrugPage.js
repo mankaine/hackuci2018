@@ -10,19 +10,59 @@ import PageTitle from './PageTitle'
 import SingleLineDataEntry from './SingleLineDataEntry'
 import MultiLineDataEntry from './MultiLineDataEntry'
 import NumberDataEntry from './NumberDataEntry'
+import StartingTimeContainer from './StartingTimeContainer'
+import RadioForm,
+{
+    RadioButton,
+    RadioButtonInput,
+    RadioButtonLabel
+} from 'react-native-simple-radio-button';
 
+var radio_props = [
+    { label: 'AM', value: 0 },
+    { label: 'PM', value: 1 }
+]
+const daysOfWeek = {
+    "Su": 0,
+    "Mo": 1,
+    "Tu": 2,
+    "We": 3,
+    "Th": 4,
+    "Fr": 5,
+    "Sa": 6,
+    "DAYS_IN_WEEK": 7
+}
 
-export default class AddDrugPage extends React.Component { 
+const temporalDivision = {
+    "AM": 0,
+    "PM": 1
+}
+
+export default class AddDrugPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            medicineName : "",
+            medicineName: "",
             instructions: "",
-            daysOfWeekToTake: [],
             dosageSize: 0,
-            dosageTimeframe: 0, 
+            dosageTimeframe: 0,
             notificationTime: 0,
-            startingTime: null
+            startingTime: null,
+            isAm: null,
+            selectedDay: -1,
+            days: []
+        }
+        for (let i = 0; i < daysOfWeek.DAYS_IN_WEEK; ++i) {
+            this.state.days.push(this.genItem())
+        }
+    }
+
+    genItem = () => {
+        return {
+            dosage: undefined,
+            frequency: undefined,
+            startingTime: undefined,
+            isAM: undefined
         }
     }
 
@@ -35,22 +75,74 @@ export default class AddDrugPage extends React.Component {
     }
 
     updateMedicineName = (data) => {
-        this.setState({medicineName: data})
+        this.setState({ medicineName: data })
     }
 
     updateInstructions = (data) => {
-        this.setState({instructions: data})
+        this.setState({ instructions: data })
     }
 
-    updateRate = (data) => {
-        this.setState({dosageSize: data})
+    updateTimeframe = (data) => {
+        if (this.state.selectedDay != -1 && data != undefined) {
+            this.state.days[this.state.selectedDay].frequency = data
+
+            console.log("TIMEFRAME")
+            console.log(data)
+            console.log(this.state.days[this.state.selectedDay])
+        }
     }
 
-    isValidDosage = (dosageToCheck) => {
+    updateDosage = (data) => {
+        if (this.state.selectedDay != -1 && data != undefined) {
+            console.log(data)
+            console.log(this.state.selectedDay)
+            console.log(this.state.days[this.state.selectedDay])
 
+            this.state.days[this.state.selectedDay].dosage = data
+
+
+            console.log("TIMEFRAME")
+            console.log(data)
+            console.log(this.state.days[this.state.selectedDay])
+        }
     }
 
-    checkForCompletion = () => {}
+    daySelected = (day) => {
+        console.log(day)
+        this.state.selectedDay = daysOfWeek[day]
+        console.log("DAY")
+        console.log(this.state.selectedDay)
+        console.log(this.state.days)
+    }
+
+    updateStartingTime = (data) => {
+        if (this.state.selectedDay != -1 && data != undefined) {
+            this.state.days[this.state.selectedDay].startingTime = data
+
+            console.log("STARTING TIME")
+            console.log(data)
+            console.log(this.state.days[this.state.selectedDay])
+        }
+    }
+
+    updateIsAM = (data) => {
+        if (this.state.selectedDay != -1 && data != undefined) {
+            this.state.days[this.state.selectedDay].isAM = data
+
+            console.log("IS AM")
+            console.log(data)
+            console.log(this.state.days[this.state.selectedDay])
+        }
+    }
+
+    checkForCompletion = () => {
+        for (let key in this.state) {
+            if (!this.state.key) {
+                return false;
+            }
+            return true;
+        }
+    }
 
     render() {
         return (
@@ -61,21 +153,43 @@ export default class AddDrugPage extends React.Component {
             >
                 <LogoHeader />
                 <PageTitle style={styles.forCommandText} text={"Add a Prescription"} />
-                <SingleLineDataEntry onChange={this.updateMedicineName} req={"Enter name"}/>
-                <MultiLineDataEntry onChange={this.updateInstructions} req={"Enter instructions"} />
-                <WeekdaySelector />
-                <DosageRequirements />
-                <NumberDataEntry onChange={this.updateRate} req={"Enter dosage"}/>
+                <SingleLineDataEntry onChange={this.updateMedicineName} req={"Name"} />
+                <MultiLineDataEntry onChange={this.updateInstructions} req={"Instructions"} />
+                <DosageRequirements
+                    onTimeframeChange={this.updateTimeframe}
+                    onDosageChange={this.updateDosage}
+                />
+                <NumberDataEntry
+                    onChange={this.updateStartingTime}
+                    req={"When to start countdown (HHMM)"}
+                />
+                <View style={styles.forFieldNameContainer}>
+                    <Text style={styles.forFieldName}>When to start countdown (AM/PM)</Text>
+                </View>
+                <View style={styles.forFieldNameContainer}>
+                    <RadioForm
+                        wrapperStyle={styles.forRadio}
+                        style={styles.forRadioInternal}
+                        radio_props={radio_props}
+                        buttonColor='#015FFF'
+                        initial={0}
+                        onPress={this.updateIsAM}
+                    />
+                </View>
+                <WeekdaySelector
+                    onPress={this.daySelected}
+                    currentDay={this.state.selectedDayToEdit}
+                />
                 <View style={styles.forView}>
                     <Button
                         onPress={this.cancelButtonPressed}
                         title="CANCEL"
-                        style={styles.forButton} 
+                        style={styles.forButton}
                     />
                     <Button
                         onPress={this.createButtonPressed}
                         title="CREATE"
-                        style={styles.forButton} 
+                        style={styles.forButton}
                     />
                 </View>
             </KeyboardAwareScrollView>
@@ -86,29 +200,35 @@ export default class AddDrugPage extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: 'column', 
-        justifyContent: 'center', 
-        alignItems: 'center'
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
-    forCommandText: { 
+    forCommandText: {
         marginTop: 20,
         marginBottom: 20
     },
-    forDataEntryPrompt : {
+    forDataEntryPrompt: {
         height: 40,
         borderBottomWidth: 2,
-        marginBottom: 20,
         flex: 0.8
     },
-    forFieldNameContainer : { 
-        flexDirection: "row"
+    forFieldNameContainer: {
+        flexDirection: "row",
+        width: '90%'
     },
-    forFieldName: { 
-        marginTop: 10, 
+    forFieldName: {
+        marginTop: 10,
         flex: 0.8
     },
     forDataEntryContainer: {
         flexDirection: 'row'
+    },
+    forRadio: {
+        width: '100%',
+    },
+    forRadioInternal: {
+        marginTop: 20
     },
     forUserCategoryPrompt: {
         fontSize: 20,
@@ -118,6 +238,7 @@ const styles = StyleSheet.create({
     forView: {
         display: "flex",
         flexDirection: "row",
+        marginBottom: 100
     },
     forButton: {
         flex: 1,
