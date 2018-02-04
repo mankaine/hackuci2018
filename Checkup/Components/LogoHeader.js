@@ -5,7 +5,7 @@ import { View, Image, StyleSheet, Text } from 'react-native';
 export default class LogoHeader extends React.Component {
   render() {
     return (
-      <View style={style.container}>
+      <View style={[style.container, this.props.style]}>
         <Image
           style={style.logo}
           source={require('../Assets/pill.png')}
