@@ -52,12 +52,7 @@ export default class SetupPage extends React.Component {
         <LogoHeader />
         <PageTitle text="Personal Information" style={styles.forTitle} />
         <SingleLineDataEntry req="Enter name" onChange={this.updateUserName}/>
-        <SetupContainer/>
-        <Button
-          onPress={() => this.props.navigation.navigate('Verification')}
-          title="ADVANCE"
-          style={styles2.button}
-        />
+        <SetupContainer navigation={this.props.navigation} name={this.state.userName} phoneNumber={this.props.navigation.state.params.phoneNumber}/>
       </ScrollView>
     );
   }
