@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, Button, StyleSheet, View, Text, TextInput } from 'react-native';
+import { ScrollView, Button, StyleSheet, View, Text, TextInput, PanResponder } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import TouchButton from './TouchButton'
 import Reminder from './Reminder'
@@ -10,8 +10,11 @@ export default class HomeContainer extends React.Component {
         this.state = {
             userNum: ''
         }
+        
     }
-
+    
+    
+        
     showClick = () => {
         console.log("Advance button pressed")
     }
@@ -20,6 +23,7 @@ export default class HomeContainer extends React.Component {
         return (
             <ScrollView style={styles.container}>
                 <TouchButton style={{padding:20}} text="Create Reminder"/>
+                <Reminder text="placeholder: take in x mins/hours"> </Reminder>
             </ScrollView>
         )
     }
