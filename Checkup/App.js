@@ -8,7 +8,7 @@ import SetupPage from './Components/SetupPage'
 import VerificationPage from './Components/VerificationPage'
 import AddDrugPage from './Components/AddDrugPage'
 
-
+/*
 const RootStack = StackNavigator( {
   Login: {
     screen: LoginPage }, 
@@ -19,15 +19,15 @@ const RootStack = StackNavigator( {
   Home: {
     screen: HomePage}
 } ); 
-
-
+<RootStack />
+*/
 export default class App extends Component {
   constructor(props){
     super(props); 
   }
   render() {
     return (
-      <RootStack />
+      <HomePage />
     );
   }
 }
