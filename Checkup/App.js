@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Bucket } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 import LoginPage from './Components/LoginPage'  
@@ -8,19 +8,24 @@ import HomepagePage from './Components/HomepagePage'
 import VerificationPage from './Components/VerificationPage'
 import AddDrugPage from './Components/AddDrugPage'
 
+
+const RootStack = StackNavigator( {
+  Login: {
+    screen: LoginPage }, 
+  Setup: {
+    screen: SetupPage },
+  Verification: {
+    screen: VerificationPage },
+} ); 
+
+
 export default class App extends Component {
   constructor(props){
     super(props); 
   }
   render() {
     return (
-      <View>
-<<<<<<< HEAD
-        <LoginPage /> 
-=======
-        <SetupPage /> 
->>>>>>> 4a170a0c85daa89fd4403c98a9752f29e567a3d8
-      </View>
+      <RootStack />
     );
   }
 }

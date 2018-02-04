@@ -20,10 +20,6 @@ export default class LoginContainer extends React.Component {
         console.log("Caretaker button pressed")
     }
 
-    showClick = () => {
-        console.log("Advance button pressed")
-    }
-
 
     render() {
         return (
@@ -37,11 +33,6 @@ export default class LoginContainer extends React.Component {
                         placeholder="Enter phone number" 
                     />
                 </View>
-                <Button 
-                    onClick={this.showClick()} 
-                    title="ADVANCE"
-                    style={styles.forButton}
-                />
             </View>
         )
     }
