@@ -1,20 +1,17 @@
 import React from 'react';
 import { AppRegistry, View, Text, Image, StyleSheet } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import HomepageContainer from './HomepageContainer'
+import HomeContainer from './HomeContainer'
 import LogoHeader from './LogoHeader'
 
-export default class HomepagePage extends React.Component {
+export default class HomePage extends React.Component {
   constructor(props){
     super(props);
     this.state = {userNum: '', userType: ''}
   }
   render() {
   return (
-      <View style = {style.container}>
-        <LogoHeader />
-        <HomepageContainer/>
-      </View>
+        <HomeContainer/>
     ); 
   }
 }
