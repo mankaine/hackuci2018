@@ -21,7 +21,7 @@ const styles2 = StyleSheet.create({
     alignItems: 'center'
   },
   label: {
-    fontSize: 20, 
+    fontSize: 20,
     textAlign: "center",
     marginTop: 30
   },
@@ -40,6 +40,9 @@ export default class SetupPage extends React.Component {
     this.state = { userName: '' }
   }
 
+  static navigationOptions = {
+    header: null,
+  }
 
   updateUserName = (data) => {
     this.setState({userName: data})
@@ -56,7 +59,7 @@ export default class SetupPage extends React.Component {
       </ScrollView>
     );
   }
-} 
+}
 
 
 const styles = {
