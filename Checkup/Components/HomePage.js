@@ -11,15 +11,15 @@ export default class HomePage extends React.Component {
   }
   render() {
   return (
-        <HomeContainer/>
-    ); 
+        <HomeContainer navigation={this.props.navigation} />
+    );
   }
 }
 const style = StyleSheet.create({
   container: {
-    flexDirection: 'column', 
-    justifyContent: 'center', 
+    flexDirection: 'column',
+    justifyContent: 'center',
     alignItems: 'center'}
   })
 
-//AppRegistry.registerComponent('Checkup', () => LoginPage); 
+//AppRegistry.registerComponent('Checkup', () => LoginPage);

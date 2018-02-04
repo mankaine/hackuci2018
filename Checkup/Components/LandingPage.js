@@ -14,17 +14,18 @@ export default class LandingPage extends React.Component {
         this.props.navigation.navigate('Login')
         return;
       }
-        const res = await fetch('http://34.217.100.80/api/auth/check', {
-          method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${value}`
-          }
-         })
-    } catch (error) { }
-    try {
-      await AsyncStorage.setItem('@checkin:token', res);
-    } catch (error) { }
-    this.props.navigation.navigate('Home')
+      const res = await fetch('http://34.217.100.80/api/auth/check', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${value}`,
+        },
+      })
+      const token = await res.text()
+      await AsyncStorage.setItem('@checkin:token', token);
+      this.props.navigation.navigate('Home')
+    } catch (error) {
+
+    }
   }
   render() {
     return (
