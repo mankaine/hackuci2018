@@ -10,9 +10,6 @@ export default class HomeContainer extends React.Component {
         this.state = {
             userNum: ''
         }
-        showClick = () => {
-            console.log(this.state.userNum)
-        } 
     }
     
     
@@ -24,7 +21,7 @@ export default class HomeContainer extends React.Component {
         return (
             <ScrollView style={styles.container}>
                 <Card containerStyle={{alignItems:'center', backgroundColor: '#F0D138'}}>
-                    <Button title="Create reminder" onPress={this.showClick} 
+                    <Button title="Create reminder" onPress={this.props.navigation.navigate('Drug')} 
                     />
                 </Card>
                 <Reminder text="placeholder: take in x mins/hours"> </Reminder> 
