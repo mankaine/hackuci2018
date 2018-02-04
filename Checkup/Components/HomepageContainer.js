@@ -24,18 +24,7 @@ export default class HomepageContainer extends React.Component {
     }
 }
 
-/**                
- * <View style={styles.forView}>
- *  <Button
- *      onClick={this.recipientButtonPressed()}
- *      title="Recipient"
- *      style={styles.forButton} />
- * <Button
- *      onClick={this.caretakerButtonPressed()}
- *      title="Caretaker"
- *      style={styles.forButton} />
- * </View>
-*/
+
 
 const styles = StyleSheet.create({
     container: {

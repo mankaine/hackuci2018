@@ -15,7 +15,11 @@ export default class App extends Component {
   render() {
     return (
       <View>
+<<<<<<< HEAD
         <LoginPage /> 
+=======
+        <SetupPage /> 
+>>>>>>> 4a170a0c85daa89fd4403c98a9752f29e567a3d8
       </View>
     );
   }

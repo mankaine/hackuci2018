@@ -6,6 +6,8 @@ import WeekdaySelector from './WeekdaySelector'
 import DosageRequirements from './DosageRequirements'
 import LogoHeader from './LogoHeader'
 import PageTitle from './PageTitle'
+import SingleLineDataEntry from './SingleLineDataEntry'
+import MultiLineDataEntry from './MultiLineDataEntry'
 
 
 export default class AddDrugPage extends React.Component { 
@@ -30,44 +32,31 @@ export default class AddDrugPage extends React.Component {
         console.log("Cancel Button Pressed")
     }
 
+    updateMedicineName = (data) => {
+        this.setState({medicineName: data})
+    }
+
+    updateInstructions = (data) => {
+        this.setState({instructions: data})
+    }
 
     render() {
         return (
             <View style={styles.container}>
                 <LogoHeader />
                 <PageTitle style={styles.forCommandText} text={"Add a Prescription"} />
-                <View style={styles.forFieldNameContainer}>
-                    <Text style={styles.forFieldName}>Enter name</Text>
-                </View>
-                <View style={styles.forDataEntryContainer}> 
-                    <TextInput
-                        onChangeText={(text) => this.setState({medicineName: text})}
-                        style={styles.forDataEntryPrompt}
-                        value={this.state.medicineName}
-                    />
-                </View>
-                <View style={styles.forFieldNameContainer}>
-                    <Text style={styles.forFieldName}>Enter instructions</Text>
-                </View>
-                <View style={styles.forDataEntryContainer}> 
-                    <TextInput
-                        onChangeText={(text) => this.setState({instructions: text})}
-                        style={styles.forDataEntryPrompt}
-                        multiline={true}
-                        numberOfLines={5}
-                        value={this.state.text}
-                    />
-                </View>
+                <SingleLineDataEntry onChange={this.updateMedicineName} req={"Enter name"}/>
+                <MultiLineDataEntry onChange={this.updateInstructions} req={"Enter instructions"} />
                 <WeekdaySelector />
                 <DosageRequirements />
                 <View style={styles.forView}>
                     <Button
-                        onClick={this.cancelButtonPressed}
+                        onPress={this.cancelButtonPressed}
                         title="CANCEL"
                         style={styles.forButton} 
                     />
                     <Button
-                        onClick={this.createButtonPressed}
+                        onPress={this.createButtonPressed}
                         title="CREATE"
                         style={styles.forButton} 
                     />
