@@ -2,11 +2,13 @@ import React from 'react';
 import { ScrollView, Button, StyleSheet, View, Text, TextInput, PanResponder } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { Card } from 'react-native-elements'
+import Icon from '@expo/vector-icons/Feather'
 import Reminder from './Reminder'
 
 export default class HomePage extends React.Component {
   static navigationOptions = {
-    header: null
+    header: null,
+    tabBarIcon: ({ tintColor }) => <Icon name="home" size={25} color={tintColor} />,
   }
 
   //<Reminder text="placeholder: take in x mins/hours"> </Reminder>
