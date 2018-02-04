@@ -30,6 +30,7 @@ export default class TouchButton extends React.Component {
             console.log("No onPress")
         }
     }
+    
 
     render() {
         return (

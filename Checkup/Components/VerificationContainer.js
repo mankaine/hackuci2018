@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, StyleSheet, View, Text, TextInput } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-
+import TouchButton from './TouchButton'
 import PageTitle from './PageTitle'
 
 

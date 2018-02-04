@@ -5,6 +5,7 @@ import LogoHeader from './LogoHeader'
 import SetupContainer from './SetupContainer'
 import PageTitle from './PageTitle'
 import SingleLineDataEntry from './SingleLineDataEntry'
+import TouchButton from './TouchButton'
 
 const styles2 = StyleSheet.create({
   input: {

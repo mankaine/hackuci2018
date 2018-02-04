@@ -4,13 +4,13 @@ import { StackNavigator } from 'react-navigation';
 import LoginContainer from './LoginContainer'
 import LogoHeader from './LogoHeader'
 
+
 export default class LoginPage extends React.Component {
   constructor(props){
     super(props);
     this.state = {userNum: '', userType: ''}
   }
   render() {
-  let pic =  {uri: 'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png'}
     return (
       <View style = {style.container}>
         <LogoHeader/>
